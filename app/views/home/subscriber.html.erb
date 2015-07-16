@@ -1,0 +1,345 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Introducing Mon Majordome. This changes your hospital visits.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mon Majordome</title>
+
+    <!-- Page styles -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.css">
+    <%= stylesheet_link_tag "styles.css" %>
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+
+    <!-- FontAwesome Icons -->
+<!--       <link href='../assets/stylesheets/font-awesome.min.css' rel='stylesheet'> -->
+      <%= stylesheet_link_tag "font-awesome.min.css" %>
+   <!-- Bootstrap -->
+    <!-- <link href="../assets/stylesheets/bootstrap.min.css" rel="stylesheet"> -->
+    <%= stylesheet_link_tag "bootstrap.min.css" %>
+  
+  <!-- Custom CSS -->
+    <!-- <link rel="stylesheet" href="../assets/stylesheets/custom.css"> -->
+    <%= stylesheet_link_tag "custom.css" %>
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="android-title mdl-layout-title">
+            <a href="index.html"><%= link_to(image_tag("monmajordome.png", :alt =>  "logo", :class =>"logo"), '' )%></a>
+          </span>
+         
+          <!-- Navigation -->
+          <div class="android-navigation-container">
+            <nav class="android-navigation mdl-navigation">
+         <!--     <a class="active mdl-navigation__link mdl-typography-text-uppercase" href="index.html">Home</a> -->
+            <!--   <a class="mdl-navigation__link mdl-typography-text-uppercase" href="about.html">About</a> -->
+<!--               <a class="mdl-navigation__link mdl-typography-text-uppercase" href="services.html">Services</a>
+              <a class="mdl-navigation__link mdl-typography-text-uppercase" href="products.html">Products</a>
+              <a class="mdl-navigation__link mdl-typography-text-uppercase" href="cart.html"><i class='fa fa-shopping-cart'></i></a> -->
+              
+               <div class="mdl-mega-footer--top-section">
+                <div class="mdl-mega-footer--left-section">
+                  <span><a href="www.facebook.com" target='_blank'><i class='fa fa-facebook-square'></i></a></span>
+                  &nbsp;
+                  <span><a href="www.twitter.com"><i class='fa fa-twitter-square'></i></a></span>
+                  &nbsp;
+                  <span><a href="www.google-plus.com"><i class='fa fa-google-plus-square'></i></a></span>
+                </div>
+              </div>
+
+            </nav>
+          </div>
+          <span class="android-mobile-title mdl-layout-title">
+            <%= link_to(image_tag("monmajordome.png", :alt =>  "logo", :class =>"logo") )%>
+          </span>
+        </div>
+      </div>
+
+      <div class="android-drawer mdl-layout__drawer">
+        <span class="mdl-layout-title">
+          <%= link_to(image_tag("monmajordome.png", :alt =>  "logo", :class =>"logo") )%>
+        </span>
+      </div>
+
+      <div class="android-content mdl-layout__content">
+        
+        <div class="android-be-together-section mdl-typography--text-center">
+          <span> Mon Majordome Logo </span>
+          <div class="android-font android-slogan">You're in the hospital... So what?</div>
+          <div class="android-font android-sub-slogan">welcome to Mon Majordome. Treat yourself as if from home.</div>
+
+	        <div class="col-sm-8 col-sm-offset-2">
+	     <!--      <form action="subscribe.php" method="POST" id="postcontent"> 
+	              <input type="name" name="name" class="form-control center-block" placeholder="Enter Your First Name..." required="">
+	              <input type="email" name="email" class="form-control center-block" placeholder="Enter Your E-mail Address..." required="">
+	             <button type="submit" class="btn btn-subscribe btn-primary">Notify Me !</button>
+	          </form> -->
+				<%= form_for Subscriber.new do |f| %>
+					<%= f.text_field :firstname %>
+					<%= f.text_field :email %>
+					<%= submit_tag 'Notify Me!', class: 'btn btn-success' %>
+				<% end %>
+			</div>
+		</div>
+            <style>
+              #postcontent .form-control,
+              #postcontent button {
+                display: inline-block;
+                position: relative;
+                bottom: -60px;
+                margin: 5px;
+                padding: 15px;
+              }
+              #postcontent button {
+                margin: 0 !important;
+              }
+            </style>
+        </div>
+        </div>
+      </div>
+      
+    <!-- Form -->
+    <!-- <div class="col-sm-12">
+    <div class="form-group">
+      <div class="form-inline">
+       <label for="typeofperson">I am a:</label>
+        <select class="form-control" style='width: 200px' id='typeofperson'>
+          <option value="Patient">Patient</option>
+          <option value="Staff">Staff</option>
+          <option value="Family-Friend">Family/Friend</option>
+        </select>
+
+        <label for="location">Located in: </label>
+        <select class="form-control" style='width: 200px' id='location'>
+          <option value="marseille">Marseille</option>
+          <option value="nice">Nice</option>
+          <option value="champagne">Champagne</option>
+        </select>
+
+         <label for="hospital">Hospital: </label>
+        <select class="form-control" style='width: 200px' id='hospital'>
+          <option value="marseille">Marseille</option>
+          <option value="nice">Nice</option>
+          <option value="champagne">Champagne</option>
+        </select>
+
+        <label for="hospital">Would Like To:  </label>
+        <select class="form-control" style='width: 200px' id='hospital'>
+          <option value="gift">Send a gift</option>
+          <option value="order-product">Order a product</option>
+          <option value="order-service">Order a service</option>
+        </select>
+        <br><br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div> -->
+      <!-- Form END -->
+
+      <section id='guides'>
+          
+        <div class='img-responsive' id='guides'>
+          <div class="android-card-container mdl-grid">
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+                <%= image_tag('butler.jpg') %>
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">Get going on Mon Majordome</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light mdl-typography--subhead">Here is a Quick Guide on how to use Mon Majordome</span>
+              </div>
+              <div class="mdl-card__actions">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                   Read the Guide
+                   <i class="material-icons">chevron_right</i>
+                 </a>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+	              <%= image_tag('butler.jpg') %>
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">Browse our Catalog of Products/Services</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light mdl-typography--subhead">Read through our catalog of products and services</span>
+              </div>
+              <div class="mdl-card__actions">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                   Browse
+                   <i class="material-icons">chevron_right</i>
+                 </a>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+                <%= image_tag('butler.jpg') %>
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">Sending a Butler as a Gift?</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light mdl-typography--subhead"> This is how you can use our service to gift a butler service to your friends/family in the hospital</span>
+              </div>
+              <div class="mdl-card__actions">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                   Read the guide
+                   <i class="material-icons">chevron_right</i>
+                 </a>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+                <%= image_tag('butler.jpg') %>
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">Subscribe to our Mailing List</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light mdl-typography--subhead"> Stay in Touch with Us! We'd love to hear any feedback as well. </span>
+              </div>
+              <div class="mdl-card__actions">
+                 <button class="btn-primary btn-lg btn-block" data-toggle='modal' data-target='#myModal'>
+                   Subscribe
+                   <i class="material-icons">chevron_right</i>
+                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> <!-- guides -->
+
+      <section id='map'>
+        <div class="row">
+          <div class="container">
+            <div class="col-sm-6">
+              <%= image_tag('map.jpg', :alt => 'map', :id => 'map') %>
+              <style>
+				#map {
+					border-radius: 9px;
+				}
+              </style>
+            </div>
+
+            <div class="col-sm-offset-1 col-sm-5" style='letter-spacing: 1.1px; line-height: 2px; text-align: center'>
+              <h2> We are at your disposal. <br> <hr> <%= image_tag('bowtie.png', :id => 'bowtie') %> Use us. <%= image_tag('bowtie.png', :id => 'bowtie') %><hr> </h2>
+              <p class="lead"> Mon Majordome means <strong>"My Butler"</strong> in French. Which is literally what we are. <br> We are currently serving in 3 areas in the South of France. We'd like to expand. </p>
+
+              <p class='lead'> We are currently negotiating deals with hosptials in <strong>Nice</strong>, <strong>Aux-en-Provence</strong> and <strong>Marseille</strong> </p>
+            </div>
+          </div>
+        </div>
+      </section> <!-- map -->
+        
+
+        <footer class="android-footer mdl-mega-footer">
+          <div class="mdl-mega-footer--top-section">
+            <div class="mdl-mega-footer--left-section">
+              <span><a href="www.facebook.com"><i class='fa fa-facebook-square'></i></a></span>
+              &nbsp;
+              <span><a href="www.twitter.com"><i class='fa fa-twitter-square'></i></a></span>
+              &nbsp;
+              <span><a href="www.google-plus.com"><i class='fa fa-google-plus-square'></i></a></span>
+            </div>
+          </div>
+
+          <div class="mdl-mega-footer--middle-section">
+            <p class="mdl-typography--font-light">Copyright: © 2015 Mon Majordome</p>
+            <p class="mdl-typography--font-light">Some products and services may not be available in all areas</p>
+          </div>
+
+          <div>
+            <a class="android-link mdl-typography--font-light" href="">Privacy Policy</a>
+          </div>
+
+        </footer>
+      </div>
+    </div>
+    <a href="subscribe.html" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Subscribe</a>
+    <script src="../../material.min.js"></script>
+
+    <!--MODAL
+      ================================================================ -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </body>
+
+<!--BOOTSTRAP CORE JAVASCRIPT
+  Placed at the end of the document so the pages load faster!
+  ================================================================ -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+  <script src="assets/js/jquery-2.1.4.min.js"></script>
+
+  <script src='assets/js/bootstrap.min.js'></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src='assets/js/main.js'></script>
+</html>
